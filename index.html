@@ -2,226 +2,173 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Clermont Internists Associates | Premier Internal Medicine</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clermont Internists Associates | Batavia, OH</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;0,700;1,400&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-  <!-- Navigation -->
-  <nav class="navbar">
-    <div class="nav-container">
-      <a href="#" class="brand">
-        <div class="brand-icon"><i class="fa-solid fa-notes-medical"></i></div>
-        <div class="brand-text">
-          <span>Clermont</span>
-          <small>Internists Associates</small>
-        </div>
-      </a>
-      
-      <div class="nav-links" id="navLinks">
-        <a href="#about" class="nav-link">About Practice</a>
-        <a href="#team" class="nav-link">Our Physicians</a>
-        <a href="#pillars" class="nav-link">Specialties</a>
-        <a href="#contact" class="nav-link">Location & Contact</a>
+  <!-- Top Utility Bar -->
+  <div class="top-bar">
+    <div class="container top-bar-flex">
+      <div>
+        <span><strong>Address:</strong> 2055 Hospital Dr, Suite 300, Batavia, OH 45103</span>
+        <span class="divider">|</span>
+        <span><strong>Phone:</strong> <a href="tel:5137320663">(513) 732-0663</a></span>
+      </div>
+      <div>
+        <span><strong>Hours:</strong> Mon–Fri 9:00 AM – 5:00 PM</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main Navigation -->
+  <header class="header">
+    <div class="container header-flex">
+      <div class="brand">
+        <a href="#" class="brand-link">
+          <div class="brand-name">Clermont Internists Associates</div>
+          <div class="brand-sub">Internal Medicine & Adult Healthcare</div>
+        </a>
       </div>
 
-      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation">
-        <i class="fa-solid fa-bars"></i>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">
+        &#9776; Menu
       </button>
-    </div>
-  </nav>
 
-  <!-- Hero Section -->
+      <nav class="nav-menu" id="navMenu">
+        <a href="#about" class="nav-link">About Practice</a>
+        <a href="#physicians" class="nav-link">Our Physicians</a>
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#contact" class="nav-link">Location & Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Banner Section -->
   <section class="hero">
-    <div class="hero-bg-glow"></div>
-    <div class="container hero-content">
-      <div class="badge">
-        <i class="fa-solid fa-circle-check"></i> Premier Internal Medicine in Batavia, OH
+    <div class="container">
+      <div class="hero-content">
+        <h1>Comprehensive Internal Medicine in Batavia, Ohio</h1>
+        <p>Providing dedicated primary care, chronic disease management, and preventative health services for adult patients throughout Clermont County.</p>
+        <div class="hero-buttons">
+          <a href="#contact" class="btn btn-primary">Contact Our Office</a>
+          <a href="#physicians" class="btn btn-secondary">Meet Our Doctors</a>
+        </div>
       </div>
-      <h1 class="hero-title">
-        Advanced Adult Healthcare, <br>
-        <span class="gradient-text">Personalized For Life.</span>
-      </h1>
-      <p class="hero-subtitle">
-        Clermont Internists Associates is a dedicated internal medicine practice specializing in comprehensive primary care, chronic condition management, preventative health, and advanced diagnostic evaluation for adults.
-      </p>
+    </div>
+  </section>
+
+  <!-- Main Content Area -->
+  <main class="container main-layout">
+    <div class="content-col">
+
+      <!-- About Section -->
+      <section id="about" class="section">
+        <h2>About Our Medical Practice</h2>
+        <p>At Clermont Internists Associates, our board-certified physicians specialize in adult health care. Internal medicine focuses on the prevention, diagnosis, and treatment of medical conditions in adults from young adulthood through the senior years.</p>
+        <p>We work directly with our patients to establish personalized care plans, emphasize routine screenings, and manage both acute medical issues and chronic long-term health needs.</p>
+      </section>
+
+      <!-- Physicians Section -->
+      <section id="physicians" class="section">
+        <h2>Our Physicians</h2>
+        <p>Our experienced internal medicine specialists are committed to maintaining long-term relationships with patients to ensure consistent, high-quality medical care.</p>
+        
+        <div class="physician-card">
+          <h3>Anil Kakumanu, M.D.</h3>
+          <p class="specialty">Board Certified in Internal Medicine</p>
+          <p>Dr. Kakumanu specializes in comprehensive adult medical care, routine annual exams, and the ongoing management of complex chronic conditions.</p>
+        </div>
+
+        <div class="physician-card">
+          <h3>Chandrasekar Vaidyanathan, M.D.</h3>
+          <p class="specialty">Board Certified in Internal Medicine</p>
+          <p>Dr. Vaidyanathan provides individualized preventative medicine, clinical diagnostics, and continuing care plans tailored to individual health goals.</p>
+        </div>
+
+        <div class="physician-card">
+          <h3>Parameswaran Hariharan, M.D.</h3>
+          <p class="specialty">Board Certified in Internal Medicine</p>
+          <p>Dr. Hariharan focuses on preventative health screenings, management of cardiovascular and metabolic disorders, and adult health maintenance.</p>
+        </div>
+      </section>
+
+      <!-- Services Section -->
+      <section id="services" class="section">
+        <h2>Clinical Services</h2>
+        <p>We provide a complete range of internal medicine and outpatient primary care services, including:</p>
+        
+        <ul class="services-list">
+          <li><strong>Preventative Care & Screenings:</strong> Annual physical exams, routine blood work, cardiovascular health evaluations, and age-appropriate cancer screenings.</li>
+          <li><strong>Chronic Condition Management:</strong> Long-term treatment plans for hypertension, diabetes, high cholesterol, asthma, arthritis, and thyroid disorders.</li>
+          <li><strong>Acute Illness Care:</strong> Prompt evaluation and medical treatment for minor illnesses, infections, and common conditions.</li>
+          <li><strong>Diagnostic Testing:</strong> Electrocardiograms (EKG), blood glucose monitoring, routine lab test ordering, and specialist referrals.</li>
+        </ul>
+      </section>
+
+    </div>
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-box info-box">
+        <h3>Office Information</h3>
+        <ul class="info-list">
+          <li>
+            <strong>Address:</strong><br>
+            2055 Hospital Dr, Suite 300<br>
+            Batavia, OH 45103
+          </li>
+          <li>
+            <strong>Phone:</strong><br>
+            <a href="tel:5137320663">(513) 732-0663</a>
+          </li>
+          <li>
+            <strong>Fax:</strong><br>
+            (513) 732-1232
+          </li>
+          <li>
+            <strong>Office Hours:</strong><br>
+            Monday – Friday: 9:00 AM – 5:00 PM<br>
+            Saturday – Sunday: Closed
+          </li>
+        </ul>
+      </div>
+
+      <div class="sidebar-box appointment-box">
+        <h3>Appointments & Inquiries</h3>
+        <p>To schedule an appointment or request medical records, please call our office directly during standard business hours.</p>
+        <p class="notice"><em>If you are experiencing a medical emergency, please call 911 immediately.</em></p>
+      </div>
+    </aside>
+  </main>
+
+  <!-- Location Section -->
+  <section id="contact" class="location-section">
+    <div class="container">
+      <h2>Location & Driving Directions</h2>
+      <p>Our office is conveniently located in Suite 300 at 2055 Hospital Dr in Batavia, OH, adjacent to Clermont Mercy Hospital.</p>
       
-      <div class="hero-actions">
-        <a href="#contact" class="btn btn-primary">
-          Visit Our Office <i class="fa-solid fa-arrow-right"></i>
+      <div class="map-placeholder">
+        <a href="https://maps.google.com/?q=2055+Hospital+Dr+Suite+300+Batavia+OH+45103" target="_blank" rel="noopener" class="map-link">
+          Open Directions in Google Maps
         </a>
-        <a href="#team" class="btn btn-secondary">
-          <i class="fa-solid fa-user-doctor"></i> Meet Our Physicians
-        </a>
-      </div>
-
-      <div class="hero-stats">
-        <div class="stat-card">
-          <div class="stat-number">Adults</div>
-          <div class="stat-label">Comprehensive Primary Care</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number">Preventative</div>
-          <div class="stat-label">Wellness & Screenings</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-number">Internal Care</div>
-          <div class="stat-label">Chronic Illness Management</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="section about-section">
-    <div class="container">
-      <div class="glass-card about-card">
-        <div class="about-grid">
-          <div class="about-text">
-            <div class="section-tag">About Our Practice</div>
-            <h2>What is Clermont Internists Associates?</h2>
-            <p class="lead-p">
-              We are a specialized medical practice focused on <strong>Internal Medicine</strong>—the medical specialty dedicated to the prevention, diagnosis, and treatment of adult diseases.
-            </p>
-            <p>
-              Unlike general family practices that treat patients of all ages, our internists focus exclusively on adults, complex medical conditions, long-term health management, and routine preventative care.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Our Physicians Section -->
-  <section id="team" class="section team-section">
-    <div class="container">
-      <div class="section-header text-center" style="margin-bottom: 30px;">
-        <div class="section-tag">Medical Professionals</div>
-        <h2>Our Physicians & Care Team</h2>
-        <p>Experienced internal medicine specialists dedicated to your long-term health.</p>
-      </div>
-
-      <div class="team-grid">
-        <div class="glass-card doctor-card">
-          <i class="fa-solid fa-user-doctor info-icon"></i>
-          <h3>Dr. Anil Kakumanu, MD</h3>
-          <p class="doctor-spec">Internal Medicine</p>
-          <p class="doctor-desc">Specializing in comprehensive adult primary care and chronic condition management.</p>
-        </div>
-
-        <div class="glass-card doctor-card">
-          <i class="fa-solid fa-user-doctor info-icon"></i>
-          <h3>Dr. Chandrasekar Vaidyanathan, MD</h3>
-          <p class="doctor-spec">Internal Medicine</p>
-          <p class="doctor-desc">Dedicated to preventative health, diagnostics, and patient-centered treatment plans.</p>
-        </div>
-
-        <div class="glass-card doctor-card">
-          <i class="fa-solid fa-user-doctor info-icon"></i>
-          <h3>Dr. Parameswaran Hariharan, MD</h3>
-          <p class="doctor-spec">Internal Medicine</p>
-          <p class="doctor-desc">Expert internal care focusing on adult wellness and long-term vitality.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Specialties Section -->
-  <section id="pillars" class="section pillars-section">
-    <div class="container">
-      <div class="section-header text-center">
-        <div class="section-tag">Core Capabilities</div>
-        <h2>Comprehensive Medical Services</h2>
-        <p>Explore how Clermont Internists Associates supports your overall health.</p>
-      </div>
-
-      <div class="tab-buttons">
-        <button class="tab-btn active" data-tab="tab-preventative">
-          <i class="fa-solid fa-shield-halved"></i> Preventative Health
-        </button>
-        <button class="tab-btn" data-tab="tab-chronic">
-          <i class="fa-solid fa-wave-square"></i> Chronic Care
-        </button>
-        <button class="tab-btn" data-tab="tab-diagnostics">
-          <i class="fa-solid fa-microscope"></i> Diagnostics
-        </button>
-      </div>
-
-      <div class="tab-content-container">
-        <div class="tab-content active" id="tab-preventative">
-          <div class="tab-info glass-card">
-            <h3>Proactive & Preventative Healthcare</h3>
-            <p>Preventative medicine is the cornerstone of internal care. We help identify potential health risks before they turn into serious medical issues through routine screenings and wellness evaluations.</p>
-          </div>
-        </div>
-
-        <div class="tab-content" id="tab-chronic">
-          <div class="tab-info glass-card">
-            <h3>Expert Long-Term Disease Management</h3>
-            <p>Managing chronic conditions requires continuity and close doctor-patient collaboration. We specialize in coordinating care for ongoing health concerns.</p>
-          </div>
-        </div>
-
-        <div class="tab-content" id="tab-diagnostics">
-          <div class="tab-info glass-card">
-            <h3>Diagnostic & Clinical Evaluation</h3>
-            <p>When you feel unwell or develop new symptoms, our internal medicine specialists perform thorough medical evaluations to determine the exact cause.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Info Section -->
-  <section id="contact" class="section contact-section">
-    <div class="container">
-      <div class="glass-card contact-card">
-        <div class="contact-header text-center">
-          <div class="section-tag">Practice Information</div>
-          <h2>Contact & Location Details</h2>
-        </div>
-
-        <div class="contact-grid">
-          <div class="contact-info-block">
-            <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
-            <div>
-              <h3>Office Address</h3>
-              <p>2055 Hospital Dr, Suite 300</p>
-              <p>Batavia, OH 45103</p>
-            </div>
-          </div>
-
-          <div class="contact-info-block">
-            <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
-            <div>
-              <h3>Phone Number</h3>
-              <p><a href="tel:5137320663" class="phone-link">(513) 732-0663</a></p>
-              <p class="sub-text">Mon–Fri: 9:00 AM – 5:00 PM<br>Sat–Sun: Closed</p>
-            </div>
-          </div>
-
-          <div class="contact-info-block">
-            <div class="info-icon"><i class="fa-solid fa-fax"></i></div>
-            <div>
-              <h3>Fax Number</h3>
-              <p>(513) 732-1232</p>
-              <p class="sub-text">For medical records & referrals</p>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
   <footer class="footer">
-    <div class="container footer-content">
-      <p>&copy; <span id="year"></span> Clermont Internists Associates. All Rights Reserved.</p>
+    <div class="container footer-flex">
+      <div>
+        <p>&copy; <span id="year"></span> Clermont Internists Associates Inc. All Rights Reserved.</p>
+      </div>
+      <div>
+        <p>2055 Hospital Dr, Suite 300, Batavia, OH 45103 | (513) 732-0663</p>
+      </div>
     </div>
   </footer>
 
