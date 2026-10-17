@@ -50,7 +50,7 @@ body {
   left: 0;
   width: 100%;
   z-index: 1000;
-  background: rgba(10, 15, 29, 0.92);
+  background: rgba(10, 15, 29, 0.95);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-color);
@@ -99,16 +99,30 @@ body {
   display: block;
 }
 
+/* Default mobile nav links state (hidden until toggled) */
 .nav-links {
+  display: none; 
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: rgba(10, 15, 29, 0.98);
+  border-bottom: 1px solid var(--border-color);
+  flex-direction: column;
+  padding: 20px;
+  gap: 16px;
+  text-align: center;
+}
+
+.nav-links.active {
   display: flex;
-  gap: 24px;
 }
 
 .nav-link {
   color: var(--text-muted);
   text-decoration: none;
   font-weight: 500;
-  font-size: 15px;
+  font-size: 16px;
   transition: color 0.3s;
 }
 
@@ -117,11 +131,11 @@ body {
 }
 
 .mobile-toggle {
-  display: none;
+  display: block;
   background: none;
   border: none;
   color: var(--text-main);
-  font-size: 22px;
+  font-size: 24px;
   cursor: pointer;
   padding: 4px;
 }
@@ -184,7 +198,6 @@ body {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  box-sizing: border-box;
 }
 
 .btn-primary {
@@ -352,8 +365,23 @@ body {
   color: var(--text-muted);
 }
 
-/* Desktop & Tablet Responsive Media Queries */
+/* Desktop & Tablet Layout Rules */
 @media (min-width: 768px) {
+  .mobile-toggle {
+    display: none;
+  }
+
+  .nav-links {
+    display: flex !important;
+    position: static;
+    width: auto;
+    background: none;
+    border: none;
+    flex-direction: row;
+    padding: 0;
+    gap: 24px;
+  }
+
   .hero-title {
     font-size: 48px;
   }
@@ -386,28 +414,5 @@ body {
 
   .tab-btn {
     width: auto;
-  }
-}
-
-@media (max-width: 767px) {
-  .mobile-toggle {
-    display: block;
-  }
-
-  .nav-links {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background: rgba(10, 15, 29, 0.98);
-    border-bottom: 1px solid var(--border-color);
-    flex-direction: column;
-    padding: 20px;
-    gap: 16px;
-    display: none;
-  }
-
-  .nav-links.active {
-    display: flex;
   }
 }
