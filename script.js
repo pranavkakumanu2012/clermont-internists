@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', function () {
-  // Automatically display current copyright year
+  // Set dynamic copyright year
   var yearEl = document.getElementById('year');
   if (yearEl) {
     yearEl.textContent = new Date().getFullYear();
   }
 
-  // Mobile Drawer Menu Toggle
+  // Mobile Navigation Drawer Toggle
   var menuToggle = document.getElementById('menuToggle');
   var navMenu = document.getElementById('navMenu');
 
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // Interactive Clinical Services Tabs
+  // Interactive Specialties Tabs
   var tabBtns = document.querySelectorAll('.tab-btn');
   var tabPanels = document.querySelectorAll('.tab-panel');
 
@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // Interactive Patient Prep Helper Data
+  // Interactive Patient Prep Checklist Data
   var helperData = {
     new: {
       title: "New Patient Appointment Requirements",
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function () {
         "Government-issued photo ID (Driver's License or State ID)",
         "Active health insurance card(s)",
         "Complete list of current prescription medications and over-the-counter supplements",
-        "Medical history records or doctor contact details from your previous practice",
+        "Previous medical records or contact details from your prior medical practice",
         "Please arrive 15 minutes prior to your scheduled appointment"
       ]
     },
@@ -96,10 +96,10 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // Render initial checklist
+  // Render default checklist
   renderHelper('new');
 
-  // Copy Address Button
+  // One-Click Address Copy
   var copyAddrBtn = document.getElementById('copyAddrBtn');
   if (copyAddrBtn) {
     copyAddrBtn.addEventListener('click', function () {
@@ -119,17 +119,17 @@ document.addEventListener('DOMContentLoaded', function () {
     kakumanu: {
       name: "Dr. Anil Kakumanu, M.D.",
       spec: "Board Certified in Internal Medicine",
-      bio: "Dr. Kakumanu provides adult primary care, complex diagnostic evaluations, chronic condition oversight (diabetes, hypertension), and ongoing preventative medical care."
+      bio: "Dr. Kakumanu brings extensive clinical experience in adult primary care, diagnostic evaluations, chronic condition oversight (diabetes, hypertension), and ongoing preventative healthcare."
     },
     vaidyanathan: {
       name: "Dr. Chandrasekar Vaidyanathan, M.D.",
       spec: "Board Certified in Internal Medicine",
-      bio: "Dr. Vaidyanathan focuses on preventative adult health assessments, cardiovascular risk monitoring, routine checkups, and individual health planning."
+      bio: "Dr. Vaidyanathan provides expert internal medicine care with an emphasis on preventative health assessments, cardiovascular monitoring, routine checkups, and individual health planning."
     },
     hariharan: {
       name: "Dr. Parameswaran Hariharan, M.D.",
       spec: "Board Certified in Internal Medicine",
-      bio: "Dr. Hariharan specializes in adult primary healthcare, metabolic health management, long-term disease monitoring, and coordinating complete care plans."
+      bio: "Dr. Hariharan focuses on comprehensive adult health maintenance, metabolic disease management, long-term condition monitoring, and coordinating complete patient care plans."
     }
   };
 
@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', function () {
       var key = card.getAttribute('data-doc');
       var doc = doctorProfiles[key];
       if (doc && docModal && modalBody) {
-        modalBody.innerHTML = '<h2>' + doc.name + '</h2><p class="doc-spec" style="margin-bottom:12px;">' + doc.spec + '</p><p style="color:#475569;">' + doc.bio + '</p>';
+        modalBody.innerHTML = '<h2 style="color:#0f172a; margin-bottom:6px;">' + doc.name + '</h2><p class="doc-spec" style="margin-bottom:14px;">' + doc.spec + '</p><p style="color:#475569; font-size:15px; line-height:1.6;">' + doc.bio + '</p>';
         docModal.classList.add('active');
       }
     });
