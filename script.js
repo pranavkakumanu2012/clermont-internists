@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', function () {
-  // Set copyright year automatically
+  // 1. Dynamic Footer Year
   var yearEl = document.getElementById('year');
   if (yearEl) {
     yearEl.textContent = new Date().getFullYear();
   }
 
-  // Mobile Menu Toggle
+  // 2. Mobile Navigation Toggle
   var menuToggle = document.getElementById('menuToggle');
   var navMenu = document.getElementById('navMenu');
 
@@ -14,25 +14,25 @@ document.addEventListener('DOMContentLoaded', function () {
       navMenu.classList.toggle('active');
     });
 
-    document.querySelectorAll('.nav-link').forEach(function (link) {
+    document.querySelectorAll('.main-nav a').forEach(function (link) {
       link.addEventListener('click', function () {
         navMenu.classList.remove('active');
       });
     });
   }
 
-  // Interactive Clinical Services Tabs
-  var tabBtns = document.querySelectorAll('.tab-btn');
-  var tabPanels = document.querySelectorAll('.tab-panel');
+  // 3. Clinical Services Switcher Tabs
+  var tabs = document.querySelectorAll('.switcher-tab');
+  var panels = document.querySelectorAll('.switcher-panel');
 
-  tabBtns.forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      var target = btn.getAttribute('data-tab');
+  tabs.forEach(function (tab) {
+    tab.addEventListener('click', function () {
+      var target = tab.getAttribute('data-tab');
 
-      tabBtns.forEach(function (b) { b.classList.remove('active'); });
-      tabPanels.forEach(function (p) { p.classList.remove('active'); });
+      tabs.forEach(function (t) { t.classList.remove('active'); });
+      panels.forEach(function (p) { p.classList.remove('active'); });
 
-      btn.classList.add('active');
+      tab.classList.add('active');
       var activePanel = document.getElementById('tab-' + target);
       if (activePanel) {
         activePanel.classList.add('active');
@@ -40,96 +40,96 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // Interactive Patient Visit Helper Checklist Data
-  var helperData = {
+  // 4. Interactive Visit Preparation Checklist
+  var prepChecklists = {
     new: {
-      title: "New Patient Appointment Requirements",
+      title: 'New Patient Appointment Checklist',
       items: [
-        "Government-issued photo ID (Driver's License or State ID)",
-        "Active health insurance card(s)",
-        "Complete list of current prescription medications and supplements",
-        "Previous medical records or contact details from your prior practice",
-        "Please arrive 15 minutes prior to your scheduled appointment"
+        'Valid government-issued photo ID (Driver’s License or State ID).',
+        'Current primary and secondary health insurance cards.',
+        'A complete list of all prescription medications, dosages, and over-the-counter supplements.',
+        'Contact information or recent records from your previous primary care provider.',
+        'Please arrive 15 minutes early to complete new patient registration forms.'
       ]
     },
     annual: {
-      title: "Annual Physical Checkup Guidelines",
+      title: 'Annual Physical Exam Preparation',
       items: [
-        "Fast for 8–12 hours prior if fasting lab work was requested",
-        "Updated list of current prescription medications",
-        "Notes regarding specific health questions or preventative screening concerns",
-        "Copy of recent specialist reports or emergency room visits in the past year"
+        'Fast (water only) for 8 to 12 hours prior if morning blood work was ordered.',
+        'Bring an updated list of any medication changes made by specialists.',
+        'Write down any new symptoms, health questions, or screening requests.',
+        'Bring records of any recent vaccinations, colonoscopies, or mammograms.'
       ]
     },
     followup: {
-      title: "Chronic Condition Follow-Up Checklist",
+      title: 'Chronic Condition Follow-Up Checklist',
       items: [
-        "Home blood pressure or blood glucose logs (if applicable)",
-        "Current medication bottles or updated list for refill authorizations",
-        "Summary of new or changing symptoms since your last checkup",
-        "Pharmacy address and phone number for electronic prescriptions"
+        'Bring your home blood pressure log or blood glucose readings.',
+        'Bring your current prescription bottles or a list of refills needed.',
+        'Note any side effects or changes in symptoms since your last office visit.',
+        'Confirm your preferred local or mail-order pharmacy details.'
       ]
     }
   };
 
-  var helperContent = document.getElementById('helperContent');
-  var helperBtns = document.querySelectorAll('.helper-btn');
+  var prepOutput = document.getElementById('prepOutput');
+  var prepChoices = document.querySelectorAll('.prep-choice');
 
-  function renderHelper(type) {
-    var data = helperData[type];
-    if (!data || !helperContent) return;
+  function updatePrepCard(visitKey) {
+    var data = prepChecklists[visitKey];
+    if (!data || !prepOutput) return;
 
-    var html = '<h3>' + data.title + '</h3><ul>';
+    var listHtml = '<h3>' + data.title + '</h3><ul>';
     data.items.forEach(function (item) {
-      html += '<li>' + item + '</li>';
+      listHtml += '<li>' + item + '</li>';
     });
-    html += '</ul>';
-    helperContent.innerHTML = html;
+    listHtml += '</ul>';
+    prepOutput.innerHTML = listHtml;
   }
 
-  helperBtns.forEach(function (btn) {
+  prepChoices.forEach(function (btn) {
     btn.addEventListener('click', function () {
-      var type = btn.getAttribute('data-type');
-      helperBtns.forEach(function (b) { b.classList.remove('active'); });
+      var visitKey = btn.getAttribute('data-visit');
+      prepChoices.forEach(function (b) { b.classList.remove('active'); });
       btn.classList.add('active');
-      renderHelper(type);
+      updatePrepCard(visitKey);
     });
   });
 
-  // Default initialize helper
-  renderHelper('new');
+  // Load initial checklist
+  updatePrepCard('new');
 
-  // Copy Address Button
-  var copyAddrBtn = document.getElementById('copyAddrBtn');
-  if (copyAddrBtn) {
-    copyAddrBtn.addEventListener('click', function () {
-      var fullAddress = "2055 Hospital Dr, Suite 300, Batavia, OH 45103";
-      navigator.clipboard.writeText(fullAddress).then(function () {
-        var origText = copyAddrBtn.innerHTML;
-        copyAddrBtn.innerHTML = '<i class="fa-solid fa-check"></i> Address Copied!';
+  // 5. Copy Street Address Button
+  var copyBtn = document.getElementById('copyAddrBtn');
+  if (copyBtn) {
+    copyBtn.addEventListener('click', function () {
+      var address = '2055 Hospital Dr, Suite 300, Batavia, OH 45103';
+      navigator.clipboard.writeText(address).then(function () {
+        var originalHtml = copyBtn.innerHTML;
+        copyBtn.innerHTML = '<i class="fa-solid fa-check"></i> Address Copied to Clipboard';
         setTimeout(function () {
-          copyAddrBtn.innerHTML = origText;
+          copyBtn.innerHTML = originalHtml;
         }, 2500);
       });
     });
   }
 
-  // Doctor Profiles Modal Data
-  var doctorProfiles = {
+  // 6. Physician Bio Modal
+  var physicianData = {
     kakumanu: {
-      name: "Dr. Anil Kakumanu, M.D.",
-      spec: "Board Certified in Internal Medicine",
-      bio: "Dr. Kakumanu specializes in adult primary healthcare, complex diagnostic evaluations, chronic condition oversight (diabetes, hypertension), and preventative care."
+      name: 'Dr. Anil Kakumanu, M.D.',
+      specialty: 'Internal Medicine • Adult Primary Care',
+      details: 'Dr. Anil Kakumanu practices internal medicine in Batavia, Ohio, focusing on comprehensive adult primary care, preventative screenings, diagnostic evaluations, and ongoing management of chronic illnesses including diabetes and hypertension.'
     },
     vaidyanathan: {
-      name: "Dr. Chandrasekar Vaidyanathan, M.D.",
-      spec: "Board Certified in Internal Medicine",
-      bio: "Dr. Vaidyanathan provides expert internal medicine care with an emphasis on preventative health assessments, cardiovascular risk monitoring, and individual wellness planning."
+      name: 'Dr. Chandrasekar Vaidyanathan, M.D.',
+      specialty: 'Internal Medicine • Adult Primary Care',
+      details: 'Dr. Chandrasekar Vaidyanathan provides patient-centered internal medicine care with an emphasis on preventative wellness, cardiovascular risk management, routine physicals, and long-term adult health maintenance.'
     },
     hariharan: {
-      name: "Dr. Parameswaran Hariharan, M.D.",
-      spec: "Board Certified in Internal Medicine",
-      bio: "Dr. Hariharan focuses on adult health maintenance, metabolic disease management, long-term condition monitoring, and coordinating complete patient care plans."
+      name: 'Dr. Parameswaran Hariharan, M.D.',
+      specialty: 'Internal Medicine • Adult Primary Care',
+      details: 'Dr. Parameswaran Hariharan specializes in adult primary healthcare, metabolic and endocrine condition oversight, diagnostic workups, and coordinated outpatient care.'
     }
   };
 
@@ -137,12 +137,15 @@ document.addEventListener('DOMContentLoaded', function () {
   var modalBody = document.getElementById('modalBody');
   var modalClose = document.getElementById('modalClose');
 
-  document.querySelectorAll('.doc-card').forEach(function (card) {
-    card.addEventListener('click', function () {
-      var key = card.getAttribute('data-doc');
-      var doc = doctorProfiles[key];
+  document.querySelectorAll('.doc-modal-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var key = btn.getAttribute('data-doc');
+      var doc = physicianData[key];
       if (doc && docModal && modalBody) {
-        modalBody.innerHTML = '<h3 style="font-family:var(--font-serif); font-size:22px; color:#fff; margin-bottom:8px;">' + doc.name + '</h3><p class="doc-spec" style="margin-bottom:12px;">' + doc.spec + '</p><p style="color:var(--text-muted); font-size:14px;">' + doc.bio + '</p>';
+        modalBody.innerHTML =
+          '<h3 style="font-family: var(--font-serif); font-size: 21px; color: var(--navy); margin-bottom: 4px;">' + doc.name + '</h3>' +
+          '<p style="font-size: 13px; font-weight: 600; color: var(--teal); margin-bottom: 14px;">' + doc.specialty + '</p>' +
+          '<p style="font-size: 14px; color: var(--text-body); line-height: 1.7;">' + doc.details + '</p>';
         docModal.classList.add('active');
       }
     });
