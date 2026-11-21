@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', function () {
-  // 1. Dynamic Footer Year
+  // Set dynamic copyright year
   var yearEl = document.getElementById('year');
   if (yearEl) {
     yearEl.textContent = new Date().getFullYear();
   }
 
-  // 2. Mobile Navigation Toggle
+  // Mobile Navigation Drawer Toggle
   var menuToggle = document.getElementById('menuToggle');
   var navMenu = document.getElementById('navMenu');
 
@@ -14,25 +14,25 @@ document.addEventListener('DOMContentLoaded', function () {
       navMenu.classList.toggle('active');
     });
 
-    document.querySelectorAll('.main-nav a').forEach(function (link) {
+    document.querySelectorAll('.nav-link').forEach(function (link) {
       link.addEventListener('click', function () {
         navMenu.classList.remove('active');
       });
     });
   }
 
-  // 3. Clinical Services Switcher Tabs
-  var tabs = document.querySelectorAll('.switcher-tab');
-  var panels = document.querySelectorAll('.switcher-panel');
+  // Interactive Specialties Tabs
+  var tabBtns = document.querySelectorAll('.tab-btn');
+  var tabPanels = document.querySelectorAll('.tab-panel');
 
-  tabs.forEach(function (tab) {
-    tab.addEventListener('click', function () {
-      var target = tab.getAttribute('data-tab');
+  tabBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var target = btn.getAttribute('data-tab');
 
-      tabs.forEach(function (t) { t.classList.remove('active'); });
-      panels.forEach(function (p) { p.classList.remove('active'); });
+      tabBtns.forEach(function (b) { b.classList.remove('active'); });
+      tabPanels.forEach(function (p) { p.classList.remove('active'); });
 
-      tab.classList.add('active');
+      btn.classList.add('active');
       var activePanel = document.getElementById('tab-' + target);
       if (activePanel) {
         activePanel.classList.add('active');
@@ -40,37 +40,37 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // 4. Copy Street Address Button
-  var copyBtn = document.getElementById('copyAddrBtn');
-  if (copyBtn) {
-    copyBtn.addEventListener('click', function () {
-      var address = '2055 Hospital Dr, Suite 300, Batavia, OH 45103';
-      navigator.clipboard.writeText(address).then(function () {
-        var originalHtml = copyBtn.innerHTML;
-        copyBtn.innerHTML = '<i class="fa-solid fa-check"></i> Address Copied to Clipboard';
+  // One-Click Address Copy
+  var copyAddrBtn = document.getElementById('copyAddrBtn');
+  if (copyAddrBtn) {
+    copyAddrBtn.addEventListener('click', function () {
+      var fullAddress = "2055 Hospital Dr, Suite 300, Batavia, OH 45103";
+      navigator.clipboard.writeText(fullAddress).then(function () {
+        var origText = copyAddrBtn.innerHTML;
+        copyAddrBtn.innerHTML = '<i class="fa-solid fa-check"></i> Address Copied!';
         setTimeout(function () {
-          copyBtn.innerHTML = originalHtml;
+          copyAddrBtn.innerHTML = origText;
         }, 2500);
       });
     });
   }
 
-  // 5. Physician Bio Modal
-  var physicianData = {
+  // Doctor Profiles Modal Data
+  var doctorProfiles = {
     kakumanu: {
-      name: 'Dr. Anil Kakumanu, M.D.',
-      specialty: 'Internal Medicine • Adult Primary Care',
-      details: 'Dr. Anil Kakumanu practices internal medicine in Batavia, Ohio, focusing on comprehensive adult primary care, preventative screenings, diagnostic evaluations, and ongoing management of chronic illnesses including diabetes and hypertension.'
+      name: "Dr. Anil Kakumanu, M.D.",
+      spec: "Board Certified in Internal Medicine",
+      bio: "Dr. Kakumanu brings extensive clinical experience in adult primary care, diagnostic evaluations, chronic condition oversight (diabetes, hypertension), and ongoing preventative healthcare."
     },
     vaidyanathan: {
-      name: 'Dr. Chandrasekar Vaidyanathan, M.D.',
-      specialty: 'Internal Medicine • Adult Primary Care',
-      details: 'Dr. Chandrasekar Vaidyanathan provides patient-centered internal medicine care with an emphasis on preventative wellness, cardiovascular risk management, routine physicals, and long-term adult health maintenance.'
+      name: "Dr. Chandrasekar Vaidyanathan, M.D.",
+      spec: "Board Certified in Internal Medicine",
+      bio: "Dr. Vaidyanathan provides expert internal medicine care with an emphasis on preventative health assessments, cardiovascular monitoring, routine checkups, and individual health planning."
     },
     hariharan: {
-      name: 'Dr. Parameswaran Hariharan, M.D.',
-      specialty: 'Internal Medicine • Adult Primary Care',
-      details: 'Dr. Parameswaran Hariharan specializes in adult primary healthcare, metabolic and endocrine condition oversight, diagnostic workups, and coordinated outpatient care.'
+      name: "Dr. Parameswaran Hariharan, M.D.",
+      spec: "Board Certified in Internal Medicine",
+      bio: "Dr. Hariharan focuses on comprehensive adult health maintenance, metabolic disease management, long-term condition monitoring, and coordinating complete patient care plans."
     }
   };
 
@@ -78,15 +78,12 @@ document.addEventListener('DOMContentLoaded', function () {
   var modalBody = document.getElementById('modalBody');
   var modalClose = document.getElementById('modalClose');
 
-  document.querySelectorAll('.doc-modal-btn').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      var key = btn.getAttribute('data-doc');
-      var doc = physicianData[key];
+  document.querySelectorAll('.doc-card').forEach(function (card) {
+    card.addEventListener('click', function () {
+      var key = card.getAttribute('data-doc');
+      var doc = doctorProfiles[key];
       if (doc && docModal && modalBody) {
-        modalBody.innerHTML =
-          '<h3 style="font-family: var(--font-serif); font-size: 21px; color: var(--navy); margin-bottom: 4px;">' + doc.name + '</h3>' +
-          '<p style="font-size: 13px; font-weight: 600; color: var(--teal); margin-bottom: 14px;">' + doc.specialty + '</p>' +
-          '<p style="font-size: 14px; color: var(--text-body); line-height: 1.7;">' + doc.details + '</p>';
+        modalBody.innerHTML = '<h2 style="color:#0f172a; margin-bottom:6px;">' + doc.name + '</h2><p class="doc-spec" style="margin-bottom:14px;">' + doc.spec + '</p><p style="color:#475569; font-size:15px; line-height:1.6;">' + doc.bio + '</p>';
         docModal.classList.add('active');
       }
     });
