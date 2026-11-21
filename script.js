@@ -40,66 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  // 4. Interactive Visit Preparation Checklist
-  var prepChecklists = {
-    new: {
-      title: 'New Patient Appointment Checklist',
-      items: [
-        'Valid government-issued photo ID (Driver’s License or State ID).',
-        'Current primary and secondary health insurance cards.',
-        'A complete list of all prescription medications, dosages, and over-the-counter supplements.',
-        'Contact information or recent records from your previous primary care provider.',
-        'Please arrive 15 minutes early to complete new patient registration forms.'
-      ]
-    },
-    annual: {
-      title: 'Annual Physical Exam Preparation',
-      items: [
-        'Fast (water only) for 8 to 12 hours prior if morning blood work was ordered.',
-        'Bring an updated list of any medication changes made by specialists.',
-        'Write down any new symptoms, health questions, or screening requests.',
-        'Bring records of any recent vaccinations, colonoscopies, or mammograms.'
-      ]
-    },
-    followup: {
-      title: 'Chronic Condition Follow-Up Checklist',
-      items: [
-        'Bring your home blood pressure log or blood glucose readings.',
-        'Bring your current prescription bottles or a list of refills needed.',
-        'Note any side effects or changes in symptoms since your last office visit.',
-        'Confirm your preferred local or mail-order pharmacy details.'
-      ]
-    }
-  };
-
-  var prepOutput = document.getElementById('prepOutput');
-  var prepChoices = document.querySelectorAll('.prep-choice');
-
-  function updatePrepCard(visitKey) {
-    var data = prepChecklists[visitKey];
-    if (!data || !prepOutput) return;
-
-    var listHtml = '<h3>' + data.title + '</h3><ul>';
-    data.items.forEach(function (item) {
-      listHtml += '<li>' + item + '</li>';
-    });
-    listHtml += '</ul>';
-    prepOutput.innerHTML = listHtml;
-  }
-
-  prepChoices.forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      var visitKey = btn.getAttribute('data-visit');
-      prepChoices.forEach(function (b) { b.classList.remove('active'); });
-      btn.classList.add('active');
-      updatePrepCard(visitKey);
-    });
-  });
-
-  // Load initial checklist
-  updatePrepCard('new');
-
-  // 5. Copy Street Address Button
+  // 4. Copy Street Address Button
   var copyBtn = document.getElementById('copyAddrBtn');
   if (copyBtn) {
     copyBtn.addEventListener('click', function () {
@@ -114,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // 6. Physician Bio Modal
+  // 5. Physician Bio Modal
   var physicianData = {
     kakumanu: {
       name: 'Dr. Anil Kakumanu, M.D.',
