@@ -52,12 +52,13 @@ a:hover {
   padding: 0 20px;
 }
 
-/* Top Announcement Bar */
+/* Organized Top Announcement Bar */
 .top-bar {
   background: var(--text-main);
   color: #e2e8f0;
   font-size: 13px;
   padding: 10px 0;
+  border-bottom: 1px solid #1e293b;
 }
 
 .top-bar-inner {
@@ -68,19 +69,46 @@ a:hover {
   gap: 12px;
 }
 
-.top-info {
+.top-badges-group {
   display: flex;
-  gap: 24px;
+  align-items: center;
+  gap: 14px;
   flex-wrap: wrap;
+}
+
+.top-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 5px 12px;
+  border-radius: 50px;
+  font-weight: 500;
+  color: #f1f5f9;
+}
+
+.top-phone-pill {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(13, 148, 136, 0.2);
+  border: 1px solid rgba(13, 148, 136, 0.4);
+  padding: 5px 14px;
+  border-radius: 50px;
+}
+
+.top-phone-pill a {
+  color: #2dd4bf;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.top-phone-pill a:hover {
+  text-decoration: underline;
 }
 
 .icon-glow {
   color: #38bdf8;
-}
-
-.top-phone a {
-  color: #ffffff;
-  font-weight: 700;
 }
 
 /* Navbar */
@@ -699,12 +727,20 @@ a:hover {
 @media (max-width: 768px) {
   .top-bar-inner {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
+    gap: 8px;
   }
 
-  .top-info {
+  .top-badges-group {
     flex-direction: column;
-    gap: 4px;
+    align-items: stretch;
+    gap: 6px;
+  }
+
+  .top-badge-pill, .top-phone-pill {
+    justify-content: center;
+    text-align: center;
+    border-radius: 8px;
   }
 
   .menu-toggle {
