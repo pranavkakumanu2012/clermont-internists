@@ -1,666 +1,164 @@
-:root {
-  --primary: #0a2540;
-  --primary-light: #1e3a8a;
-  --teal: #00a884;
-  --teal-hover: #008f70;
-  --teal-light: #f0fdfa;
-  --bg-slate: #f8fafc;
-  --bg-white: #ffffff;
-  --text-dark: #0f172a;
-  --text-muted: #475569;
-  --border: #e2e8f0;
-  --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.05), 0 8px 10px -6px rgba(15, 23, 42, 0.01);
-  --radius: 12px;
-  --font: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: var(--font);
-  color: var(--text-dark);
-  background-color: var(--bg-slate);
-  line-height: 1.6;
-  width: 100%;
-  overflow-x: hidden;
-}
-
-a {
-  color: var(--primary-light);
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-.container {
-  width: 100%;
-  max-width: 1140px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* Top Announcement Bar */
-.top-bar {
-  background-color: var(--primary);
-  color: #e2e8f0;
-  font-size: 13px;
-  padding: 8px 0;
-}
-
-.top-bar-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.top-info {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.top-phone a {
-  color: #ffffff;
-  font-weight: 700;
-}
-
-/* Navigation Header */
-.header {
-  background: var(--bg-white);
-  border-bottom: 1px solid var(--border);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.02);
-}
-
-.header-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 16px 20px;
-}
-
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  text-decoration: none;
-}
-
-.brand-icon {
-  width: 44px;
-  height: 44px;
-  background: var(--primary);
-  color: white;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  flex-shrink: 0;
-}
-
-.brand-text {
-  display: flex;
-  flex-direction: column;
-}
-
-.brand-name {
-  font-size: 19px;
-  font-weight: 800;
-  color: var(--primary);
-  line-height: 1.2;
-}
-
-.brand-sub {
-  font-size: 12px;
-  color: var(--teal);
-  font-weight: 700;
-}
-
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 24px;
-  color: var(--primary);
-  cursor: pointer;
-  padding: 6px;
-}
-
-.nav-menu {
-  display: flex;
-  align-items: center;
-  gap: 24px;
-}
-
-.nav-link {
-  font-weight: 600;
-  font-size: 14px;
-  color: var(--text-muted);
-  transition: color 0.2s;
-}
-
-.nav-link:hover {
-  color: var(--teal);
-  text-decoration: none;
-}
-
-.btn-nav {
-  background: var(--primary);
-  color: white !important;
-  padding: 8px 16px;
-  border-radius: 8px;
-}
-
-.btn-nav:hover {
-  background: var(--primary-light);
-}
-
-/* Hero Section */
-.hero {
-  background: linear-gradient(135deg, #f0fdfa 0%, #e0f2fe 100%);
-  padding: 60px 0;
-  border-bottom: 1px solid var(--border);
-}
-
-.hero-grid {
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 40px;
-  align-items: center;
-}
-
-.hero-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  background: white;
-  color: var(--teal);
-  padding: 6px 14px;
-  border-radius: 50px;
-  font-size: 13px;
-  font-weight: 700;
-  border: 1px solid #ccfbf1;
-  margin-bottom: 16px;
-}
-
-.hero h1 {
-  font-size: 38px;
-  font-weight: 800;
-  color: var(--primary);
-  line-height: 1.2;
-  margin-bottom: 16px;
-}
-
-.hero p {
-  font-size: 16px;
-  color: var(--text-muted);
-  margin-bottom: 24px;
-}
-
-.hero-btns {
-  display: flex;
-  gap: 12px;
-  margin-bottom: 28px;
-  flex-wrap: wrap;
-}
-
-.btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 12px 22px;
-  border-radius: 8px;
-  font-weight: 700;
-  font-size: 14px;
-  cursor: pointer;
-  border: none;
-  transition: all 0.2s;
-  text-decoration: none;
-}
-
-.btn-primary {
-  background: var(--primary);
-  color: white;
-}
-
-.btn-primary:hover {
-  background: var(--primary-light);
-  text-decoration: none;
-}
-
-.btn-secondary {
-  background: white;
-  color: var(--primary);
-  border: 1px solid var(--border);
-}
-
-.btn-secondary:hover {
-  background: var(--bg-slate);
-  text-decoration: none;
-}
-
-.btn-teal {
-  background: var(--teal);
-  color: white;
-}
-
-.btn-teal:hover {
-  background: var(--teal-hover);
-}
-
-.btn-full {
-  width: 100%;
-  justify-content: center;
-}
-
-.hero-perks {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  font-size: 13px;
-  font-weight: 600;
-  color: var(--text-muted);
-}
-
-.perk i {
-  color: var(--teal);
-}
-
-.hero-card {
-  background: white;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 24px;
-  box-shadow: var(--shadow);
-}
-
-.card-header {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid var(--border);
-  margin-bottom: 16px;
-}
-
-.card-header i {
-  font-size: 32px;
-  color: var(--teal);
-}
-
-.card-header h3 {
-  font-size: 18px;
-  color: var(--primary);
-}
-
-.card-header p {
-  font-size: 12px;
-  color: var(--text-muted);
-}
-
-.quick-facts {
-  list-style: none;
-  margin-bottom: 20px;
-}
-
-.quick-facts li {
-  font-size: 14px;
-  margin-bottom: 10px;
-  color: var(--text-muted);
-}
-
-.quick-facts strong {
-  color: var(--text-dark);
-}
-
-/* Sections Base */
-.section {
-  padding: 60px 0;
-}
-
-.bg-white {
-  background: var(--bg-white);
-}
-
-.bg-slate {
-  background: var(--bg-slate);
-}
-
-.bg-teal-light {
-  background: var(--teal-light);
-}
-
-.text-center {
-  text-align: center;
-}
-
-.section-header {
-  margin-bottom: 40px;
-}
-
-.section-tag {
-  color: var(--teal);
-  text-transform: uppercase;
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 1px;
-}
-
-.section-header h2 {
-  font-size: 28px;
-  font-weight: 800;
-  color: var(--primary);
-  margin-top: 4px;
-}
-
-.underline {
-  width: 50px;
-  height: 4px;
-  background: var(--teal);
-  margin: 10px auto 0;
-  border-radius: 2px;
-}
-
-.section-sub {
-  font-size: 15px;
-  color: var(--text-muted);
-  margin-top: 10px;
-}
-
-.grid-3 {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-
-.feature-card, .doc-card, .info-card {
-  background: white;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 28px 24px;
-  box-shadow: var(--shadow);
-  text-align: center;
-}
-
-.icon-box, .doc-avatar, .info-icon {
-  width: 54px;
-  height: 54px;
-  background: #e0f2fe;
-  color: var(--primary-light);
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 22px;
-  margin: 0 auto 16px;
-}
-
-.feature-card h3, .doc-card h3, .info-card h3 {
-  font-size: 18px;
-  color: var(--primary);
-  margin-bottom: 8px;
-}
-
-.feature-card p, .doc-card p, .info-card p {
-  font-size: 14px;
-  color: var(--text-muted);
-}
-
-/* Physicians Section */
-.doc-card {
-  cursor: pointer;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.doc-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-}
-
-.doc-spec {
-  display: inline-block;
-  color: var(--teal);
-  font-weight: 700;
-  font-size: 13px;
-  margin-bottom: 10px;
-}
-
-.btn-text {
-  background: none;
-  border: none;
-  color: var(--primary-light);
-  font-weight: 700;
-  font-size: 13px;
-  margin-top: 12px;
-  cursor: pointer;
-}
-
-/* Services Tabs */
-.tab-btns {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  margin-bottom: 24px;
-  flex-wrap: wrap;
-}
-
-.tab-btn {
-  background: white;
-  border: 1px solid var(--border);
-  padding: 12px 20px;
-  border-radius: 8px;
-  font-weight: 700;
-  font-size: 14px;
-  color: var(--text-muted);
-  cursor: pointer;
-}
-
-.tab-btn.active {
-  background: var(--primary);
-  color: white;
-  border-color: var(--primary);
-}
-
-.panel-card {
-  background: var(--bg-slate);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 28px;
-  text-align: center;
-}
-
-.panel-card h3 {
-  font-size: 20px;
-  color: var(--primary);
-  margin-bottom: 10px;
-}
-
-.tab-panel {
-  display: none;
-}
-
-.tab-panel.active {
-  display: block;
-}
-
-/* Interactive Patient Helper */
-.helper-box {
-  max-width: 720px;
-  margin: 0 auto;
-  background: white;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 28px;
-  box-shadow: var(--shadow);
-}
-
-.helper-btns {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.helper-btn {
-  background: var(--bg-slate);
-  border: 1px solid var(--border);
-  padding: 10px 18px;
-  border-radius: 6px;
-  font-weight: 700;
-  font-size: 13px;
-  cursor: pointer;
-}
-
-.helper-btn.active {
-  background: var(--teal);
-  color: white;
-  border-color: var(--teal);
-}
-
-.helper-content h3 {
-  font-size: 18px;
-  color: var(--primary);
-  margin-bottom: 12px;
-}
-
-.helper-content ul {
-  padding-left: 20px;
-  color: var(--text-muted);
-  font-size: 14px;
-}
-
-.helper-content li {
-  margin-bottom: 8px;
-}
-
-/* Footer */
-.footer {
-  background: var(--primary);
-  color: #cbd5e1;
-  font-size: 13px;
-  padding: 24px 0;
-}
-
-.footer-inner {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
-/* Doctor Modal */
-.modal {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(15, 23, 42, 0.6);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  z-index: 1000;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-}
-
-.modal.active {
-  display: flex;
-}
-
-.modal-content {
-  background: white;
-  border-radius: var(--radius);
-  padding: 32px;
-  max-width: 500px;
-  width: 100%;
-  position: relative;
-  box-shadow: var(--shadow);
-}
-
-.modal-close {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  background: none;
-  border: none;
-  font-size: 24px;
-  cursor: pointer;
-  color: var(--text-muted);
-}
-
-.muted {
-  font-size: 12px;
-  color: #94a3b8;
-}
-
-/* Responsive Breakpoints */
-@media (max-width: 900px) {
-  .hero-grid {
-    grid-template-columns: 1fr;
+document.addEventListener('DOMContentLoaded', function () {
+  // Automatically display current copyright year
+  var yearEl = document.getElementById('year');
+  if (yearEl) {
+    yearEl.textContent = new Date().getFullYear();
   }
 
-  .grid-3 {
-    grid-template-columns: 1fr;
-  }
-}
+  // Mobile Drawer Menu Toggle
+  var menuToggle = document.getElementById('menuToggle');
+  var navMenu = document.getElementById('navMenu');
 
-@media (max-width: 768px) {
-  .top-bar-inner {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+  if (menuToggle && navMenu) {
+    menuToggle.addEventListener('click', function () {
+      navMenu.classList.toggle('active');
+    });
 
-  .top-info {
-    flex-direction: column;
-    gap: 4px;
-  }
-
-  .menu-toggle {
-    display: block;
+    document.querySelectorAll('.nav-link').forEach(function (link) {
+      link.addEventListener('click', function () {
+        navMenu.classList.remove('active');
+      });
+    });
   }
 
-  .nav-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background: white;
-    flex-direction: column;
-    padding: 20px;
-    gap: 16px;
-    border-bottom: 1px solid var(--border);
-    box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+  // Interactive Clinical Services Tabs
+  var tabBtns = document.querySelectorAll('.tab-btn');
+  var tabPanels = document.querySelectorAll('.tab-panel');
+
+  tabBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var target = btn.getAttribute('data-tab');
+
+      tabBtns.forEach(function (b) { b.classList.remove('active'); });
+      tabPanels.forEach(function (p) { p.classList.remove('active'); });
+
+      btn.classList.add('active');
+      var activePanel = document.getElementById('tab-' + target);
+      if (activePanel) {
+        activePanel.classList.add('active');
+      }
+    });
+  });
+
+  // Interactive Patient Prep Helper Data
+  var helperData = {
+    new: {
+      title: "New Patient Appointment Requirements",
+      items: [
+        "Government-issued photo ID (Driver's License or State ID)",
+        "Active health insurance card(s)",
+        "Complete list of current prescription medications and over-the-counter supplements",
+        "Medical history records or doctor contact details from your previous practice",
+        "Please arrive 15 minutes prior to your scheduled appointment"
+      ]
+    },
+    annual: {
+      title: "Annual Physical Checkup Guidelines",
+      items: [
+        "Fast for 8–12 hours prior if fasting lab work was requested by your doctor",
+        "Updated list of current prescription medications",
+        "Notes regarding specific health questions or preventative screening concerns",
+        "List of specialist visits or hospital care records from the past year"
+      ]
+    },
+    followup: {
+      title: "Chronic Condition Follow-Up Checklist",
+      items: [
+        "Home blood pressure or blood glucose logs (if applicable)",
+        "Current medication bottles or an updated list for refill authorizations",
+        "Summary of new or changing symptoms since your last medical checkup",
+        "Pharmacy address and contact information for electronic prescriptions"
+      ]
+    }
+  };
+
+  var helperContent = document.getElementById('helperContent');
+  var helperBtns = document.querySelectorAll('.helper-btn');
+
+  function renderHelper(type) {
+    var data = helperData[type];
+    if (!data || !helperContent) return;
+
+    var html = '<h3>' + data.title + '</h3><ul>';
+    data.items.forEach(function (item) {
+      html += '<li>' + item + '</li>';
+    });
+    html += '</ul>';
+    helperContent.innerHTML = html;
   }
 
-  .nav-menu.active {
-    display: flex;
+  helperBtns.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var type = btn.getAttribute('data-type');
+      helperBtns.forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      renderHelper(type);
+    });
+  });
+
+  // Render initial checklist
+  renderHelper('new');
+
+  // Copy Address Button
+  var copyAddrBtn = document.getElementById('copyAddrBtn');
+  if (copyAddrBtn) {
+    copyAddrBtn.addEventListener('click', function () {
+      var fullAddress = "2055 Hospital Dr, Suite 300, Batavia, OH 45103";
+      navigator.clipboard.writeText(fullAddress).then(function () {
+        var origText = copyAddrBtn.innerHTML;
+        copyAddrBtn.innerHTML = '<i class="fa-solid fa-check"></i> Address Copied!';
+        setTimeout(function () {
+          copyAddrBtn.innerHTML = origText;
+        }, 2500);
+      });
+    });
   }
 
-  .hero h1 {
-    font-size: 28px;
+  // Doctor Profiles Modal Data
+  var doctorProfiles = {
+    kakumanu: {
+      name: "Dr. Anil Kakumanu, M.D.",
+      spec: "Board Certified in Internal Medicine",
+      bio: "Dr. Kakumanu provides adult primary care, complex diagnostic evaluations, chronic condition oversight (diabetes, hypertension), and ongoing preventative medical care."
+    },
+    vaidyanathan: {
+      name: "Dr. Chandrasekar Vaidyanathan, M.D.",
+      spec: "Board Certified in Internal Medicine",
+      bio: "Dr. Vaidyanathan focuses on preventative adult health assessments, cardiovascular risk monitoring, routine checkups, and individual health planning."
+    },
+    hariharan: {
+      name: "Dr. Parameswaran Hariharan, M.D.",
+      spec: "Board Certified in Internal Medicine",
+      bio: "Dr. Hariharan specializes in adult primary healthcare, metabolic health management, long-term disease monitoring, and coordinating complete care plans."
+    }
+  };
+
+  var docModal = document.getElementById('docModal');
+  var modalBody = document.getElementById('modalBody');
+  var modalClose = document.getElementById('modalClose');
+
+  document.querySelectorAll('.doc-card').forEach(function (card) {
+    card.addEventListener('click', function () {
+      var key = card.getAttribute('data-doc');
+      var doc = doctorProfiles[key];
+      if (doc && docModal && modalBody) {
+        modalBody.innerHTML = '<h2>' + doc.name + '</h2><p class="doc-spec" style="margin-bottom:12px;">' + doc.spec + '</p><p style="color:#475569;">' + doc.bio + '</p>';
+        docModal.classList.add('active');
+      }
+    });
+  });
+
+  if (modalClose) {
+    modalClose.addEventListener('click', function () {
+      docModal.classList.remove('active');
+    });
   }
 
-  .btn {
-    width: 100%;
-    justify-content: center;
+  if (docModal) {
+    docModal.addEventListener('click', function (e) {
+      if (e.target === docModal) {
+        docModal.classList.remove('active');
+      }
+    });
   }
-
-  .footer-inner {
-    flex-direction: column;
-  }
-}
+});
